@@ -24,8 +24,8 @@ internal static class Utils
 		{
 			value = Convert.ToInt32(obj);
 			return true;
-		}
-		catch
+        }
+        catch
 		{
 			value = -1;
 			return false;
@@ -102,8 +102,8 @@ internal static class Utils
 		if (TryGetAttribute(propertyInfo, out BinaryArrayVariableLengthAttribute? varLenAttribute))
 		{
 			string anchorName = GetAttributeValue<BinaryArrayVariableLengthAttribute, string>(varLenAttribute);
-			PropertyInfo? anchor = objType.GetProperty(anchorName, BindingFlags.Instance | BindingFlags.Public);
-			if (anchor is null)
+            PropertyInfo? anchor = objType.GetProperty(anchorName, BindingFlags.Instance | BindingFlags.Public);
+            if (anchor is null)
 			{
 				throw new MissingMemberException($"An array property in \"{objType.FullName}\" has an invalid {nameof(BinaryArrayVariableLengthAttribute)} ({anchorName}).");
 			}
@@ -158,8 +158,8 @@ internal static class Utils
 		if (TryGetAttribute(propertyInfo, out BinaryStringVariableLengthAttribute? varLenAttribute))
 		{
 			string anchorName = GetAttributeValue<BinaryStringVariableLengthAttribute, string>(varLenAttribute);
-			PropertyInfo? anchor = objType.GetProperty(anchorName, BindingFlags.Instance | BindingFlags.Public);
-			if (anchor is null)
+            PropertyInfo? anchor = objType.GetProperty(anchorName, BindingFlags.Instance | BindingFlags.Public);
+            if (anchor is null)
 			{
 				throw new MissingMemberException($"A string property in \"{objType.FullName}\" has an invalid {nameof(BinaryStringVariableLengthAttribute)} ({anchorName}).");
 			}

@@ -35,6 +35,8 @@ Project URL and Samples ― https://github.com/Kermalis/EndianBinaryIO</Descript
 * Added "unsafe" methods to `EndianBinaryPrimitives` that read/write to/from `ReadOnlySpan&lt;T&gt;`/`Span&lt;T&gt;`. These are similar to their non-`_Unsafe` counterparts, aside from the fact that they don't check for errors. Their goal is performance.
 
 No breaking changes from v2.0.1</PackageReleaseNotes>
+		<SignAssembly>False</SignAssembly>
+		<AnalysisLevel>latest-all</AnalysisLevel>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

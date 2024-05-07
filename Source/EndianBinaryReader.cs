@@ -62,8 +62,8 @@ public partial class EndianBinaryReader
 			int consumeBytes = Math.Min(numBytes, BUF_LEN);
 
 			Span<byte> buffer = _buffer.AsSpan(0, consumeBytes);
-			ReadBytes(buffer);
-			readArray(buffer, dest.Slice(start, consumeBytes / elementSize), Endianness);
+            ReadBytes(buffer);
+            readArray(buffer, dest.Slice(start, consumeBytes / elementSize), Endianness);
 
 			numBytes -= consumeBytes;
 			start += consumeBytes / elementSize;
@@ -312,8 +312,8 @@ public partial class EndianBinaryReader
 	}
 	[MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
 	public bool ReadBoolean()
-	{
-		switch (BooleanSize)
+    {
+        switch (BooleanSize)
 		{
 			case BooleanSize.U8: return ReadByte() != 0;
 			case BooleanSize.U16: return ReadUInt16() != 0;
@@ -374,9 +374,9 @@ public partial class EndianBinaryReader
 	[MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
 	public object ReadEnum(Type enumType)
 	{
-		// Type.IsEnum is also false for base Enum type, so don't worry about it
-		Type underlyingType = Enum.GetUnderlyingType(enumType);
-		switch (Type.GetTypeCode(underlyingType))
+        // Type.IsEnum is also false for base Enum type, so don't worry about it
+        Type underlyingType = Enum.GetUnderlyingType(enumType);
+        switch (Type.GetTypeCode(underlyingType))
 		{
 			case TypeCode.SByte: return Enum.ToObject(enumType, ReadSByte());
 			case TypeCode.Byte: return Enum.ToObject(enumType, ReadByte());
